@@ -1,0 +1,57 @@
+---
+title: "OpenSesame learning resources"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+## OpenSesame homepage 
+* [OpenSesame homepage](https://osdoc.cogsci.nl/index.html)
+
+## workshop 
+* [How to make experiments using OpenSesame (slides)](https://github.com/mjgreen/opensesame_examples/raw/master/BScProjectOpenSesame.pptx)
+* [demo experiment: bare bones](https://github.com/mjgreen/opensesame_examples/raw/master/workshop/gazecueing-0-template.osexp)
+* [demo experiment: with trial sequence](https://github.com/mjgreen/opensesame_examples/raw/master/workshop/gazecueing-1-with-trial-sequence.osexp)
+* [demo experiment: full version](https://github.com/mjgreen/opensesame_examples/raw/master/workshop/gazecueing-2-full-version.osexp)
+
+## basic templates
+* [attentional blink](https://github.com/mjgreen/opensesame_examples/raw/master/attentional_blink.osexp)
+-- Attentional blink is a phenomenon that reflects the temporal costs in allocating selective attention. The attentional blink is typically measured by using rapid serial visual presentation (RSVP) tasks, where participants often fail to detect a second salient target occurring in succession if it is presented between 180-450 ms after the first one. One curious aspect of attentional blink is that it usually includes 'lag 1 sparing', meaning that targets presented very close together in time (consecutively in the RSVP stream) are not affected by the attentional blink, even though items presented at slightly greater lags are significantly impaired.
+* [attentional capture](https://github.com/mjgreen/opensesame_examples/raw/master/attentional_capture.osexp)
+-- The task of the participant is to report the orientation of a line segment in a unique shape (a circle among diamonds or a diamond among squares). On some trials, a distractor shape with a unique color is present; on other trials, no such distractor is present. The typical finding is that the distractor captures attention, which results in reduced performance (slower and less accurate) on distractor-present trials, compared to distractor-absent trials. 
+* [face processing](https://github.com/mjgreen/opensesame_examples/raw/master/face_processing_no_eyetrack.osexp)
+-- this version has a learning phase during which participants rate faces for attractiveness, a distractor phase where they do a maths task, and a recall phase where they are asked to respond whether they have / have not seen the faces before, in a new set of seen and unseen faces.
+* [gaze cueing](https://github.com/mjgreen/opensesame_examples/raw/master/gaze_cuing.osexp)
+-- Participants are instructed to fixate a central point on the screen, marked by a dot or cross. To the left and the right of the point are two boxes. For a brief period, a cue is presented on the screen. Following a brief interval after the cue is removed, a target stimulus, usually a shape, appears in either the left or right box. The observer must respond to the target immediately after detecting it.
+* [implicit association test](https://github.com/mjgreen/opensesame_examples/raw/master/implicit_association_test.osexp)
+-- The implicit-association test (IAT) is a measure within social psychology designed to detect the strength of a person's automatic association between mental representations of objects (concepts) in memory.
+* [questionnaire](https://github.com/mjgreen/opensesame_examples/raw/master/questionnaire.osexp)
+-- a way to collect questionnaire data using a computer rather than pen and paper, making for easier analysis
+* [response terminated by restricted keys](https://github.com/mjgreen/opensesame_examples/raw/master/response_terminated_by_restricted_keys.osexp)
+-- simple template that shows how to put something on the screen until the participant presses one key from a restricted list of keys (i.e., not just 'press any key to continue'). This can be used to collect ratings etc.
+* [stop signal task](https://github.com/mjgreen/opensesame_examples/raw/master/stop_signal_task.osexp)
+-- In this experiment, participants respond to a leftward- or rightward-pointing arrow by pressing the left or right key, respectively. On some trials, a red square is presented - this is the stop signal. Participants should withold their response when the stop-signal is presented.
+* [visual search](https://github.com/mjgreen/opensesame_examples/raw/master/visual_search.osexp)
+-- Visual search is a type of perceptual task requiring attention that typically involves an active scan of the visual environment for a particular object or feature (the target) among other objects or features (the distractors)
+-- this one doesn't record eye movements yet
+
+## eye tracking templates
+* [website view and rate](https://github.com/mjgreen/opensesame_examples/raw/master/website_view_and_rate.osexp) 
+-- the provided stimuli are screenshots of websites, but this template would also be suitable for presenting any kind of still images for which you want to collect a keyboard response (e.g., faces with ratings of attractiveness; crowd scenes with/without threat objects)
+* [lexical decision](https://github.com/mjgreen/opensesame_examples/raw/master/lexical_decision.osexp)
+-- In a lexical-decision experiment, the task is to categorize letter strings on some feature, such as whether they form a word (e.g. 'apple') or not (e.g. 'ipple'). Usually, the goal of a lexical-decision experiment is to analyze the response times to words as a function of another variable. 
+This version records eye movements and pupil dilation.
+* [visual world](https://github.com/mjgreen/opensesame_examples/raw/master/visual_world.osexp)
+-- the Visual World Paradigm can be used to understand the time-course of spoken language comprehension and the role visual context can play in language understanding. 
+
+## plugins
+To use these plugins download the zip files, and unzip to `C:\Program Files (x86)\OpenSesame\share\opensesame_plugins`
+
+* sound recording plugins 
+    * [how to use the sound recording plugins](http://osdoc.cogsci.nl/manual/response/soundrecording)
+    * [download start recording plugin](https://github.com/mjgreen/opensesame_examples/raw/master/sound_start_recording.zip)
+    * [download stop recording plugin](https://github.com/mjgreen/opensesame_examples/raw/master/sound_stop_recording.zip)
+* smooth pursuit plugins
+    * [download saccade plugin](https://github.com/mjgreen/opensesame_examples/raw/master/saccade.zip)
+    * [download smooth pursuit plugin](https://github.com/mjgreen/opensesame_examples/raw/master/smooth_pursuit.zip)
