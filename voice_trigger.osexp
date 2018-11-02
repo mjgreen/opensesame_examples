@@ -1,0 +1,166 @@
+---
+API: 2
+OpenSesame: 3.1.9
+Platform: nt
+---
+set width 1024
+set uniform_coordinates yes
+set title "New experiment"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend legacy
+set round_decimals 2
+set mouse_backend xpyriment
+set keyboard_backend legacy
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "c:\\Program Files (x86)\\OpenSesame\\lib\\site-packages\\share\\opensesame_resources\\templates"
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend legacy
+set clock_backend legacy
+set canvas_backend xpyriment
+set bidi no
+set background black
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run new_loop always
+
+define inline_script new_inline_script
+	set description "Executes Python code"
+	___run__
+	import pyaudio
+	import struct
+	import math 
+	
+	# A low threshold increases sensitivity, a high threshold reduces it.
+	# On my (Matt's) home PC and mic/headphones a value of 0.1 is about 
+	# twice as loud as the background in a quiet room, and works well.
+	# The suggested start value is 0.5. The value ranges between 0 and 1.
+	# You will have to play with this value until the spoken response is about
+	# twice as loud as the background noise. You can find out what the background 
+	# noise is by observing the stream of values in the debug window that precede 
+	# a spoken response. An alternative that might work is to adjust the 
+	# threshold knob on the voicekey hardware, and keep this software value 
+	# at the suggested 0.5
+	sound_threshold = 0.1
+	# Maximum response time
+	timeout = 5000
+	
+	FORMAT = pyaudio.paInt16 
+	SHORT_NORMALIZE = (1.0/32768.0)
+	CHANNELS = 2
+	RATE = 44100  
+	INPUT_BLOCK_TIME = 0.01
+	INPUT_FRAMES_PER_BLOCK = int(RATE*INPUT_BLOCK_TIME)
+	chunk=1024
+	
+	def get_rms(block):
+	
+		"""Get root mean square as a measure of loudness"""
+	
+		count = len(block)/2
+		format = "%dh" % (count)
+		shorts = struct.unpack( format, block )
+		sum_squares = 0.0
+		for sample in shorts:
+			n = sample * SHORT_NORMALIZE
+			sum_squares += n*n
+		return math.sqrt( sum_squares / count )
+	
+	# Open the mic
+	stream = pyaudio.PyAudio().open(
+		format=FORMAT,
+		channels=CHANNELS,
+		rate=RATE,
+		input=True,
+		input_device_index=0,
+		frames_per_buffer=INPUT_FRAMES_PER_BLOCK
+		)
+	
+	# Listen for sounds until a sound is detected or a timeout occurs.
+	start_time = clock.time()
+	while True:
+		if clock.time() - start_time >= timeout:
+			response_time = timeout
+			response = u'timeout'
+			var.loudness = None
+			break   
+		try:
+			block = stream.read(chunk)
+		except IOError as e:
+			print e
+		loudness = get_rms(block)
+		print(loudness) # for finding a threshold that works with the particular 
+		                # PC and mic
+		if loudness > sound_threshold:
+			response_time = clock.time() - start_time
+			response = u'detected'
+			var.loudness = loudness
+			break
+	
+	# Process the response  
+	set_response(response=response, response_time=response_time)
+	# this line above is fine when there is only one response on the trial but we 
+	# will be collecting a kb response from the experimenter too, which will by 
+	# default yield response and response_time which would overwrite the voicekey 
+	# responses. So we add ", item='voice_key'" which says "append '_voice_key' to 
+	# this response and response_time; i.e., 
+	# yield 'response_voice_key' and 'response_time_voice_key'"
+	responses.add(response=response, response_time=response_time, item='voice_key')
+	
+	# Close the audio stream
+	stream.close()
+	pyaudio.PyAudio().terminate()
+	__end__
+	set _prepare ""
+
+define logger new_logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define loop new_loop
+	set source table
+	set repeat 1
+	set order sequential
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 mytext foo
+	run new_sequence
+
+define sequence new_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run new_sketchpad always
+	run new_inline_script always
+	run show_blank always
+	run new_logger always
+
+define sketchpad new_sketchpad
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[mytext]<br />" x=0 y=0 z_index=0
+
+define sketchpad show_blank
+	set duration 1000
+	set description "Displays stimuli"
+
