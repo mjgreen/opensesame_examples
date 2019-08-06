@@ -1,0 +1,1616 @@
+---
+API: 2.1
+OpenSesame: 3.2.5b1
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title "pro-saccade_anti-saccade_tessa"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend legacy
+set round_decimals 2
+set mouse_backend legacy
+set keyboard_backend legacy
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "/home/matt/Desktop"
+set disable_garbage_collection yes
+set description "A template for eye-tracking experiments"
+set coordinates relative
+set compensation 0
+set color_backend legacy
+set clock_backend legacy
+set canvas_backend legacy
+set bidi yes
+set background black
+
+define notepad about_this_experiment
+	__note__
+	pro-saccade_anti-saccade task.
+	
+	Green central dot means pro-saccade
+	Red central dot means anti-saccade
+	
+	180 trials
+		- 45 = green (pro-saccade)  & dot presented left  => look left
+		- 45 = green (pro-saccade)  & dot presented right => look right
+		- 45 = red   (anti-saccade) & dot presented left  => look right
+		- 45 = red   (anti-saccade) & dot presented right => look left
+	
+	breaks
+		every 45 trials
+	
+	practice
+		with feedback
+	
+	drift correct
+		every 10 trials
+	__end__
+	set description "Some pointers to help you gest started!"
+
+define loop anti_block
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 block_type anti
+	run anti_sequence
+
+define loop anti_loop_1
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 52
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 correct_response right
+	setcycle 0 pracexp prac
+	setcycle 0 proanti anti
+	setcycle 0 side left
+	setcycle 1 correct_response left
+	setcycle 1 pracexp prac
+	setcycle 1 proanti anti
+	setcycle 1 side right
+	setcycle 2 correct_response right
+	setcycle 2 pracexp prac
+	setcycle 2 proanti anti
+	setcycle 2 side left
+	setcycle 3 correct_response left
+	setcycle 3 pracexp prac
+	setcycle 3 proanti anti
+	setcycle 3 side right
+	setcycle 4 correct_response right
+	setcycle 4 pracexp prac
+	setcycle 4 proanti anti
+	setcycle 4 side left
+	setcycle 5 correct_response left
+	setcycle 5 pracexp prac
+	setcycle 5 proanti anti
+	setcycle 5 side right
+	setcycle 6 correct_response right
+	setcycle 6 pracexp prac
+	setcycle 6 proanti anti
+	setcycle 6 side left
+	setcycle 7 correct_response left
+	setcycle 7 pracexp prac
+	setcycle 7 proanti anti
+	setcycle 7 side right
+	setcycle 8 correct_response right
+	setcycle 8 pracexp prac
+	setcycle 8 proanti anti
+	setcycle 8 side left
+	setcycle 9 correct_response left
+	setcycle 9 pracexp prac
+	setcycle 9 proanti anti
+	setcycle 9 side right
+	setcycle 10 correct_response right
+	setcycle 10 pracexp prac
+	setcycle 10 proanti anti
+	setcycle 10 side left
+	setcycle 11 correct_response left
+	setcycle 11 pracexp prac
+	setcycle 11 proanti anti
+	setcycle 11 side right
+	setcycle 12 correct_response right
+	setcycle 12 pracexp exp
+	setcycle 12 proanti anti
+	setcycle 12 side left
+	setcycle 13 correct_response left
+	setcycle 13 pracexp exp
+	setcycle 13 proanti anti
+	setcycle 13 side right
+	setcycle 14 correct_response right
+	setcycle 14 pracexp exp
+	setcycle 14 proanti anti
+	setcycle 14 side left
+	setcycle 15 correct_response left
+	setcycle 15 pracexp exp
+	setcycle 15 proanti anti
+	setcycle 15 side right
+	setcycle 16 correct_response right
+	setcycle 16 pracexp exp
+	setcycle 16 proanti anti
+	setcycle 16 side left
+	setcycle 17 correct_response left
+	setcycle 17 pracexp exp
+	setcycle 17 proanti anti
+	setcycle 17 side right
+	setcycle 18 correct_response right
+	setcycle 18 pracexp exp
+	setcycle 18 proanti anti
+	setcycle 18 side left
+	setcycle 19 correct_response left
+	setcycle 19 pracexp exp
+	setcycle 19 proanti anti
+	setcycle 19 side right
+	setcycle 20 correct_response right
+	setcycle 20 pracexp exp
+	setcycle 20 proanti anti
+	setcycle 20 side left
+	setcycle 21 correct_response left
+	setcycle 21 pracexp exp
+	setcycle 21 proanti anti
+	setcycle 21 side right
+	setcycle 22 correct_response right
+	setcycle 22 pracexp exp
+	setcycle 22 proanti anti
+	setcycle 22 side left
+	setcycle 23 correct_response left
+	setcycle 23 pracexp exp
+	setcycle 23 proanti anti
+	setcycle 23 side right
+	setcycle 24 correct_response right
+	setcycle 24 pracexp exp
+	setcycle 24 proanti anti
+	setcycle 24 side left
+	setcycle 25 correct_response left
+	setcycle 25 pracexp exp
+	setcycle 25 proanti anti
+	setcycle 25 side right
+	setcycle 26 correct_response right
+	setcycle 26 pracexp exp
+	setcycle 26 proanti anti
+	setcycle 26 side left
+	setcycle 27 correct_response left
+	setcycle 27 pracexp exp
+	setcycle 27 proanti anti
+	setcycle 27 side right
+	setcycle 28 correct_response right
+	setcycle 28 pracexp exp
+	setcycle 28 proanti anti
+	setcycle 28 side left
+	setcycle 29 correct_response left
+	setcycle 29 pracexp exp
+	setcycle 29 proanti anti
+	setcycle 29 side right
+	setcycle 30 correct_response right
+	setcycle 30 pracexp exp
+	setcycle 30 proanti anti
+	setcycle 30 side left
+	setcycle 31 correct_response left
+	setcycle 31 pracexp exp
+	setcycle 31 proanti anti
+	setcycle 31 side right
+	setcycle 32 correct_response right
+	setcycle 32 pracexp exp
+	setcycle 32 proanti anti
+	setcycle 32 side left
+	setcycle 33 correct_response left
+	setcycle 33 pracexp exp
+	setcycle 33 proanti anti
+	setcycle 33 side right
+	setcycle 34 correct_response right
+	setcycle 34 pracexp exp
+	setcycle 34 proanti anti
+	setcycle 34 side left
+	setcycle 35 correct_response left
+	setcycle 35 pracexp exp
+	setcycle 35 proanti anti
+	setcycle 35 side right
+	setcycle 36 correct_response right
+	setcycle 36 pracexp exp
+	setcycle 36 proanti anti
+	setcycle 36 side left
+	setcycle 37 correct_response left
+	setcycle 37 pracexp exp
+	setcycle 37 proanti anti
+	setcycle 37 side right
+	setcycle 38 correct_response right
+	setcycle 38 pracexp exp
+	setcycle 38 proanti anti
+	setcycle 38 side left
+	setcycle 39 correct_response left
+	setcycle 39 pracexp exp
+	setcycle 39 proanti anti
+	setcycle 39 side right
+	setcycle 40 correct_response right
+	setcycle 40 pracexp exp
+	setcycle 40 proanti anti
+	setcycle 40 side left
+	setcycle 41 correct_response left
+	setcycle 41 pracexp exp
+	setcycle 41 proanti anti
+	setcycle 41 side right
+	setcycle 42 correct_response right
+	setcycle 42 pracexp exp
+	setcycle 42 proanti anti
+	setcycle 42 side left
+	setcycle 43 correct_response left
+	setcycle 43 pracexp exp
+	setcycle 43 proanti anti
+	setcycle 43 side right
+	setcycle 44 correct_response right
+	setcycle 44 pracexp exp
+	setcycle 44 proanti anti
+	setcycle 44 side left
+	setcycle 45 correct_response left
+	setcycle 45 pracexp exp
+	setcycle 45 proanti anti
+	setcycle 45 side right
+	setcycle 46 correct_response right
+	setcycle 46 pracexp exp
+	setcycle 46 proanti anti
+	setcycle 46 side left
+	setcycle 47 correct_response left
+	setcycle 47 pracexp exp
+	setcycle 47 proanti anti
+	setcycle 47 side right
+	setcycle 48 correct_response right
+	setcycle 48 pracexp exp
+	setcycle 48 proanti anti
+	setcycle 48 side left
+	setcycle 49 correct_response left
+	setcycle 49 pracexp exp
+	setcycle 49 proanti anti
+	setcycle 49 side right
+	setcycle 50 correct_response right
+	setcycle 50 pracexp exp
+	setcycle 50 proanti anti
+	setcycle 50 side left
+	setcycle 51 correct_response left
+	setcycle 51 pracexp exp
+	setcycle 51 proanti anti
+	setcycle 51 side right
+	run trial_sequence_1
+
+define loop anti_loop_12
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 12
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 correct_response right
+	setcycle 0 pracexp prac
+	setcycle 0 proanti anti
+	setcycle 0 side left
+	setcycle 1 correct_response left
+	setcycle 1 pracexp prac
+	setcycle 1 proanti anti
+	setcycle 1 side right
+	setcycle 2 correct_response right
+	setcycle 2 pracexp prac
+	setcycle 2 proanti anti
+	setcycle 2 side left
+	setcycle 3 correct_response left
+	setcycle 3 pracexp prac
+	setcycle 3 proanti anti
+	setcycle 3 side right
+	setcycle 4 correct_response right
+	setcycle 4 pracexp prac
+	setcycle 4 proanti anti
+	setcycle 4 side left
+	setcycle 5 correct_response left
+	setcycle 5 pracexp prac
+	setcycle 5 proanti anti
+	setcycle 5 side right
+	setcycle 6 correct_response right
+	setcycle 6 pracexp prac
+	setcycle 6 proanti anti
+	setcycle 6 side left
+	setcycle 7 correct_response left
+	setcycle 7 pracexp prac
+	setcycle 7 proanti anti
+	setcycle 7 side right
+	setcycle 8 correct_response right
+	setcycle 8 pracexp prac
+	setcycle 8 proanti anti
+	setcycle 8 side left
+	setcycle 9 correct_response left
+	setcycle 9 pracexp prac
+	setcycle 9 proanti anti
+	setcycle 9 side right
+	setcycle 10 correct_response right
+	setcycle 10 pracexp prac
+	setcycle 10 proanti anti
+	setcycle 10 side left
+	setcycle 11 correct_response left
+	setcycle 11 pracexp prac
+	setcycle 11 proanti anti
+	setcycle 11 side right
+	run trial_sequence
+
+define loop anti_loop_40
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 40
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 correct_response right
+	setcycle 0 pracexp exp
+	setcycle 0 proanti anti
+	setcycle 0 side left
+	setcycle 1 correct_response left
+	setcycle 1 pracexp exp
+	setcycle 1 proanti anti
+	setcycle 1 side right
+	setcycle 2 correct_response right
+	setcycle 2 pracexp exp
+	setcycle 2 proanti anti
+	setcycle 2 side left
+	setcycle 3 correct_response left
+	setcycle 3 pracexp exp
+	setcycle 3 proanti anti
+	setcycle 3 side right
+	setcycle 4 correct_response right
+	setcycle 4 pracexp exp
+	setcycle 4 proanti anti
+	setcycle 4 side left
+	setcycle 5 correct_response left
+	setcycle 5 pracexp exp
+	setcycle 5 proanti anti
+	setcycle 5 side right
+	setcycle 6 correct_response right
+	setcycle 6 pracexp exp
+	setcycle 6 proanti anti
+	setcycle 6 side left
+	setcycle 7 correct_response left
+	setcycle 7 pracexp exp
+	setcycle 7 proanti anti
+	setcycle 7 side right
+	setcycle 8 correct_response right
+	setcycle 8 pracexp exp
+	setcycle 8 proanti anti
+	setcycle 8 side left
+	setcycle 9 correct_response left
+	setcycle 9 pracexp exp
+	setcycle 9 proanti anti
+	setcycle 9 side right
+	setcycle 10 correct_response right
+	setcycle 10 pracexp exp
+	setcycle 10 proanti anti
+	setcycle 10 side left
+	setcycle 11 correct_response left
+	setcycle 11 pracexp exp
+	setcycle 11 proanti anti
+	setcycle 11 side right
+	setcycle 12 correct_response right
+	setcycle 12 pracexp exp
+	setcycle 12 proanti anti
+	setcycle 12 side left
+	setcycle 13 correct_response left
+	setcycle 13 pracexp exp
+	setcycle 13 proanti anti
+	setcycle 13 side right
+	setcycle 14 correct_response right
+	setcycle 14 pracexp exp
+	setcycle 14 proanti anti
+	setcycle 14 side left
+	setcycle 15 correct_response left
+	setcycle 15 pracexp exp
+	setcycle 15 proanti anti
+	setcycle 15 side right
+	setcycle 16 correct_response right
+	setcycle 16 pracexp exp
+	setcycle 16 proanti anti
+	setcycle 16 side left
+	setcycle 17 correct_response left
+	setcycle 17 pracexp exp
+	setcycle 17 proanti anti
+	setcycle 17 side right
+	setcycle 18 correct_response right
+	setcycle 18 pracexp exp
+	setcycle 18 proanti anti
+	setcycle 18 side left
+	setcycle 19 correct_response left
+	setcycle 19 pracexp exp
+	setcycle 19 proanti anti
+	setcycle 19 side right
+	setcycle 20 correct_response right
+	setcycle 20 pracexp exp
+	setcycle 20 proanti anti
+	setcycle 20 side left
+	setcycle 21 correct_response left
+	setcycle 21 pracexp exp
+	setcycle 21 proanti anti
+	setcycle 21 side right
+	setcycle 22 correct_response right
+	setcycle 22 pracexp exp
+	setcycle 22 proanti anti
+	setcycle 22 side left
+	setcycle 23 correct_response left
+	setcycle 23 pracexp exp
+	setcycle 23 proanti anti
+	setcycle 23 side right
+	setcycle 24 correct_response right
+	setcycle 24 pracexp exp
+	setcycle 24 proanti anti
+	setcycle 24 side left
+	setcycle 25 correct_response left
+	setcycle 25 pracexp exp
+	setcycle 25 proanti anti
+	setcycle 25 side right
+	setcycle 26 correct_response right
+	setcycle 26 pracexp exp
+	setcycle 26 proanti anti
+	setcycle 26 side left
+	setcycle 27 correct_response left
+	setcycle 27 pracexp exp
+	setcycle 27 proanti anti
+	setcycle 27 side right
+	setcycle 28 correct_response right
+	setcycle 28 pracexp exp
+	setcycle 28 proanti anti
+	setcycle 28 side left
+	setcycle 29 correct_response left
+	setcycle 29 pracexp exp
+	setcycle 29 proanti anti
+	setcycle 29 side right
+	setcycle 30 correct_response right
+	setcycle 30 pracexp exp
+	setcycle 30 proanti anti
+	setcycle 30 side left
+	setcycle 31 correct_response left
+	setcycle 31 pracexp exp
+	setcycle 31 proanti anti
+	setcycle 31 side right
+	setcycle 32 correct_response right
+	setcycle 32 pracexp exp
+	setcycle 32 proanti anti
+	setcycle 32 side left
+	setcycle 33 correct_response left
+	setcycle 33 pracexp exp
+	setcycle 33 proanti anti
+	setcycle 33 side right
+	setcycle 34 correct_response right
+	setcycle 34 pracexp exp
+	setcycle 34 proanti anti
+	setcycle 34 side left
+	setcycle 35 correct_response left
+	setcycle 35 pracexp exp
+	setcycle 35 proanti anti
+	setcycle 35 side right
+	setcycle 36 correct_response right
+	setcycle 36 pracexp exp
+	setcycle 36 proanti anti
+	setcycle 36 side left
+	setcycle 37 correct_response left
+	setcycle 37 pracexp exp
+	setcycle 37 proanti anti
+	setcycle 37 side right
+	setcycle 38 correct_response right
+	setcycle 38 pracexp exp
+	setcycle 38 proanti anti
+	setcycle 38 side left
+	setcycle 39 correct_response left
+	setcycle 39 pracexp exp
+	setcycle 39 proanti anti
+	setcycle 39 side right
+	run trial_sequence
+
+define sequence anti_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run anti_loop_12 always
+	run anti_loop_40 always
+
+define inline_script blank_screen_ITI
+	set description "Executes Python code"
+	___run__
+	my_canvas = Canvas()
+	my_canvas.show()
+	clock.sleep(1250)
+	__end__
+	set _prepare ""
+
+define inline_script blank_screen_ITI_1
+	set description "Executes Python code"
+	___run__
+	my_canvas = Canvas()
+	my_canvas.show()
+	clock.sleep(1250)
+	__end__
+	set _prepare ""
+
+define inline_script catch_the_response
+	set description "Executes Python code"
+	___run__
+	x_offset = .5*exp.width
+	y_offset = .5*exp.height
+	
+	timer_on = clock.time()
+	while True: # i.e., response-terminated
+		raw_x, raw_y = eyetracker.sample()
+		x = raw_x - x_offset
+		y = raw_y - y_offset
+		if (x, y) in my_canvas['rect_left']:
+			timer_off = clock.time()
+			var.response = "left"
+			var.response_time = clock.time() - timer_on
+			if var.response == exp.correct_response:
+				var.response_accuracy = 1
+			if not var.response == exp.correct_response:
+				var.response_accuracy = 0
+			break
+		elif (x, y) in my_canvas['rect_right']:
+			var.response_time = clock.time() - timer_on
+			var.response = "right"
+			if var.response == exp.correct_response:
+				var.response_accuracy = 1
+			if not var.response == exp.correct_response:
+				var.response_accuracy = 0
+			break
+	__end__
+	set _prepare ""
+
+define inline_script catch_the_response_1
+	set description "Executes Python code"
+	___run__
+	x_offset = .5*exp.width
+	y_offset = .5*exp.height
+	
+	timer_on = clock.time()
+	while True: # i.e., response-terminated
+		raw_x, raw_y = eyetracker.sample()
+		x = raw_x - x_offset
+		y = raw_y - y_offset
+		if (x, y) in my_canvas['rect_left']:
+			timer_off = clock.time()
+			var.response = "left"
+			var.response_time = clock.time() - timer_on
+			if var.response == exp.correct_response:
+				var.response_accuracy = 1
+			if not var.response == exp.correct_response:
+				var.response_accuracy = 0
+			break
+		elif (x, y) in my_canvas['rect_right']:
+			var.response_time = clock.time() - timer_on
+			var.response = "right"
+			if var.response == exp.correct_response:
+				var.response_accuracy = 1
+			if not var.response == exp.correct_response:
+				var.response_accuracy = 0
+			break
+	__end__
+	set _prepare ""
+
+define sequence condition_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run set_current_block_for_condition_1 always
+	run anti_block "[current_block]==1"
+	run pro_block "[current_block]==2"
+	run anti_block "[current_block]==3"
+	run pro_block "[current_block]==4"
+
+define loop condition_1_loop
+	set source table
+	set repeat 4
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 which_condition condition_1
+	run condition_1
+
+define sequence condition_2
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run mixed_block always
+	run mixed_block always
+	run mixed_block always
+	run mixed_block always
+
+define loop condition_2_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 which_condition condition_2
+	run condition_2
+
+define sequence conditions
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run set_which_condition_runs always
+	run condition_1_loop "[this_condition] == 1"
+	run condition_2_loop "[this_condition] == 2"
+
+define loop conditions_loop
+	set source table
+	set repeat 2
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run conditions
+
+define inline_script draw_central_and_lateral_dots
+	set description "Executes Python code"
+	___run__
+	if var.proanti == "pro":
+		center_colour = "green"
+	elif var.proanti == "anti":
+		center_colour = "red"
+		
+	if var.side == "left":
+		attractor_x = 0-(.375*exp.width)
+	elif var.side == "right":
+		attractor_x = 0+(.375*exp.width)
+	
+	my_canvas = Canvas()
+	
+	# central dot, colour indicates pro- or anti- saccade
+	my_canvas['my_central_dot'] = FixDot(x=0, y=0,  style='large-filled', color=center_colour)
+	
+	# lateral dot, white, side determined by the top code
+	my_canvas['my_lateral_dot'] = FixDot(x=attractor_x, y=0, style='large-filled', color='white')
+	
+	# invisible patches
+	my_canvas['rect_left']  = Rect(0-(.5*exp.width),  0-(.5*exp.height), 0+(0.25*exp.width), exp.height, fill=False, color=exp.background)
+	my_canvas['rect_right'] = Rect(0+(.25*exp.width), 0-(.5*exp.height), 0+(0.25*exp.width), exp.height, fill=False, color=exp.background)
+	
+	my_canvas.show()
+	__end__
+	set _prepare ""
+
+define inline_script draw_central_and_lateral_dots_1
+	set description "Executes Python code"
+	___run__
+	if var.proanti == "pro":
+		center_colour = "green"
+	elif var.proanti == "anti":
+		center_colour = "red"
+		
+	if var.side == "left":
+		attractor_x = 0-(.375*exp.width)
+	elif var.side == "right":
+		attractor_x = 0+(.375*exp.width)
+	
+	my_canvas = Canvas()
+	
+	# central dot, colour indicates pro- or anti- saccade
+	my_canvas['my_central_dot'] = FixDot(x=0, y=0,  style='large-filled', color=center_colour)
+	
+	# lateral dot, white, side determined by the top code
+	my_canvas['my_lateral_dot'] = FixDot(x=attractor_x, y=0, style='large-filled', color='white')
+	
+	# invisible patches
+	my_canvas['rect_left']  = Rect(0-(.5*exp.width),  0-(.5*exp.height), 0+(0.25*exp.width), exp.height, fill=False, color=exp.background)
+	my_canvas['rect_right'] = Rect(0+(.25*exp.width), 0-(.5*exp.height), 0+(0.25*exp.width), exp.height, fill=False, color=exp.background)
+	
+	my_canvas.show()
+	__end__
+	set _prepare ""
+
+define inline_script draw_central_fixation_cross
+	set description "Executes Python code"
+	___run__
+	x_offset = .5*exp.width
+	y_offset = .5*exp.height
+	
+	my_canvas = Canvas()
+	my_canvas['my_fixdot'] = FixDot(x=0, y=0, style='small-cross')
+	my_canvas.show()
+	
+	# make sure they aren't still looking in either of the response zones for 
+	# the previous trial before leaving this element of the experiment
+	while True: 
+		raw_x, raw_y = eyetracker.sample()
+		x = raw_x - x_offset
+		y = raw_y - y_offset
+		if (x > (0-(.5*x_offset))) & (x < (0+(.5*x_offset))) :
+			break
+	
+	clock.sleep(200)
+	__end__
+	set _prepare ""
+
+define inline_script draw_central_fixation_cross_1
+	set description "Executes Python code"
+	___run__
+	x_offset = .5*exp.width
+	y_offset = .5*exp.height
+	
+	my_canvas = Canvas()
+	my_canvas['my_fixdot'] = FixDot(x=0, y=0, style='small-cross')
+	my_canvas.show()
+	
+	# make sure they aren't still looking in either of the response zones for 
+	# the previous trial before leaving this element of the experiment
+	while True: 
+		raw_x, raw_y = eyetracker.sample()
+		x = raw_x - x_offset
+		y = raw_y - y_offset
+		if (x > (0-(.5*x_offset))) & (x < (0+(.5*x_offset))) :
+			break
+	
+	clock.sleep(200)
+	__end__
+	set _prepare ""
+
+define sketchpad end_of_experiment
+	set start_response_interval no
+	set duration keypress
+	set description "A sketchpad notifying the participant that the experiment is finished"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Press any key to exit" x=0 y=0 z_index=0
+
+define sketchpad end_of_practice
+	set start_response_interval no
+	set duration keypress
+	set description "A sketchpad notifying the participant that the practice phase is finished"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="End of practice trials.<br /><br />Press any key to continue to the main experiment." x=0 y=0 z_index=0
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "The main sequence of the experiment"
+	run about_this_experiment always
+	run randomise_which_condition_runs_first always
+	run randomise_run_order_for_condition_1 always
+	run say_whether_we_want_feedback always
+	run pygaze_init always
+	run instructions always
+	run conditions_loop always
+	run end_of_experiment always
+
+define loop experimental_inner_loop
+	set source_file ""
+	set source table
+	set repeat 45
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 4
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 side left
+	setcycle 0 proanti pro
+	setcycle 0 correct_response left
+	setcycle 1 side left
+	setcycle 1 proanti anti
+	setcycle 1 correct_response right
+	setcycle 2 side right
+	setcycle 2 proanti pro
+	setcycle 2 correct_response right
+	setcycle 3 side right
+	setcycle 3 proanti anti
+	setcycle 3 correct_response left
+	run trial_sequence
+
+define loop experimental_loop
+	set source_file ""
+	set source table
+	set skip 0
+	set repeat 1
+	set order random
+	set offset no
+	set item block_sequence
+	set description "A loop containing one or more experimental blocks"
+	set cycles 1
+	set continuous no
+	set column_order practice
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 practice no
+	run experimental_sequence
+
+define sequence experimental_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run experimental_inner_loop always
+
+define sketchpad give_correct_feedback
+	set duration 2000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Correct!" x=0 y=0 z_index=0
+
+define sketchpad give_correct_feedback_1
+	set duration 2000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Correct!" x=0 y=0 z_index=0
+
+define sketchpad give_error_feedback
+	set duration 2000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Error!" x=0 y=0 z_index=0
+
+define sketchpad give_error_feedback_1
+	set duration 2000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Error!" x=0 y=0 z_index=0
+
+define sketchpad instructions
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="In this task, we are measuring your eye movements to look at or look away from a laterally-displaced target.<br /><br />You will be shown a red or green dot in the centre of the screen. This serves as your instruction for the trial. If the dot is green, look to the target. If the dot is red, look to the opposite side of the screen to where the dot is.<br /><br />Press any key to begin." x=0 y=0 z_index=0
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define logger logger_1
+	set description "Logs experimental data"
+	set auto_log yes
+
+define loop mixed_block
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 block_type mixed
+	run mixed_sequence
+
+define loop mixed_loop_12
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 12
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 correct_response left
+	setcycle 0 pracexp prac
+	setcycle 0 proanti pro
+	setcycle 0 side left
+	setcycle 1 correct_response right
+	setcycle 1 pracexp prac
+	setcycle 1 proanti pro
+	setcycle 1 side right
+	setcycle 2 correct_response left
+	setcycle 2 pracexp prac
+	setcycle 2 proanti pro
+	setcycle 2 side left
+	setcycle 3 correct_response right
+	setcycle 3 pracexp prac
+	setcycle 3 proanti pro
+	setcycle 3 side right
+	setcycle 4 correct_response left
+	setcycle 4 pracexp prac
+	setcycle 4 proanti pro
+	setcycle 4 side left
+	setcycle 5 correct_response right
+	setcycle 5 pracexp prac
+	setcycle 5 proanti pro
+	setcycle 5 side right
+	setcycle 6 correct_response right
+	setcycle 6 pracexp prac
+	setcycle 6 proanti anti
+	setcycle 6 side left
+	setcycle 7 correct_response left
+	setcycle 7 pracexp prac
+	setcycle 7 proanti anti
+	setcycle 7 side right
+	setcycle 8 correct_response right
+	setcycle 8 pracexp prac
+	setcycle 8 proanti anti
+	setcycle 8 side left
+	setcycle 9 correct_response left
+	setcycle 9 pracexp prac
+	setcycle 9 proanti anti
+	setcycle 9 side right
+	setcycle 10 correct_response right
+	setcycle 10 pracexp prac
+	setcycle 10 proanti anti
+	setcycle 10 side left
+	setcycle 11 correct_response left
+	setcycle 11 pracexp prac
+	setcycle 11 proanti anti
+	setcycle 11 side right
+	run trial_sequence
+
+define loop mixed_loop_40
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 40
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 correct_response right
+	setcycle 0 pracexp exp
+	setcycle 0 proanti anti
+	setcycle 0 side left
+	setcycle 1 correct_response left
+	setcycle 1 pracexp exp
+	setcycle 1 proanti anti
+	setcycle 1 side right
+	setcycle 2 correct_response right
+	setcycle 2 pracexp exp
+	setcycle 2 proanti anti
+	setcycle 2 side left
+	setcycle 3 correct_response left
+	setcycle 3 pracexp exp
+	setcycle 3 proanti anti
+	setcycle 3 side right
+	setcycle 4 correct_response right
+	setcycle 4 pracexp exp
+	setcycle 4 proanti anti
+	setcycle 4 side left
+	setcycle 5 correct_response left
+	setcycle 5 pracexp exp
+	setcycle 5 proanti anti
+	setcycle 5 side right
+	setcycle 6 correct_response right
+	setcycle 6 pracexp exp
+	setcycle 6 proanti anti
+	setcycle 6 side left
+	setcycle 7 correct_response left
+	setcycle 7 pracexp exp
+	setcycle 7 proanti anti
+	setcycle 7 side right
+	setcycle 8 correct_response right
+	setcycle 8 pracexp exp
+	setcycle 8 proanti anti
+	setcycle 8 side left
+	setcycle 9 correct_response left
+	setcycle 9 pracexp exp
+	setcycle 9 proanti anti
+	setcycle 9 side right
+	setcycle 10 correct_response right
+	setcycle 10 pracexp exp
+	setcycle 10 proanti anti
+	setcycle 10 side left
+	setcycle 11 correct_response left
+	setcycle 11 pracexp exp
+	setcycle 11 proanti anti
+	setcycle 11 side right
+	setcycle 12 correct_response right
+	setcycle 12 pracexp exp
+	setcycle 12 proanti anti
+	setcycle 12 side left
+	setcycle 13 correct_response left
+	setcycle 13 pracexp exp
+	setcycle 13 proanti anti
+	setcycle 13 side right
+	setcycle 14 correct_response right
+	setcycle 14 pracexp exp
+	setcycle 14 proanti anti
+	setcycle 14 side left
+	setcycle 15 correct_response left
+	setcycle 15 pracexp exp
+	setcycle 15 proanti anti
+	setcycle 15 side right
+	setcycle 16 correct_response right
+	setcycle 16 pracexp exp
+	setcycle 16 proanti anti
+	setcycle 16 side left
+	setcycle 17 correct_response left
+	setcycle 17 pracexp exp
+	setcycle 17 proanti anti
+	setcycle 17 side right
+	setcycle 18 correct_response right
+	setcycle 18 pracexp exp
+	setcycle 18 proanti anti
+	setcycle 18 side left
+	setcycle 19 correct_response left
+	setcycle 19 pracexp exp
+	setcycle 19 proanti anti
+	setcycle 19 side right
+	setcycle 20 correct_response left
+	setcycle 20 pracexp exp
+	setcycle 20 proanti pro
+	setcycle 20 side left
+	setcycle 21 correct_response right
+	setcycle 21 pracexp exp
+	setcycle 21 proanti pro
+	setcycle 21 side right
+	setcycle 22 correct_response left
+	setcycle 22 pracexp exp
+	setcycle 22 proanti pro
+	setcycle 22 side left
+	setcycle 23 correct_response right
+	setcycle 23 pracexp exp
+	setcycle 23 proanti pro
+	setcycle 23 side right
+	setcycle 24 correct_response left
+	setcycle 24 pracexp exp
+	setcycle 24 proanti pro
+	setcycle 24 side left
+	setcycle 25 correct_response right
+	setcycle 25 pracexp exp
+	setcycle 25 proanti pro
+	setcycle 25 side right
+	setcycle 26 correct_response left
+	setcycle 26 pracexp exp
+	setcycle 26 proanti pro
+	setcycle 26 side left
+	setcycle 27 correct_response right
+	setcycle 27 pracexp exp
+	setcycle 27 proanti pro
+	setcycle 27 side right
+	setcycle 28 correct_response left
+	setcycle 28 pracexp exp
+	setcycle 28 proanti pro
+	setcycle 28 side left
+	setcycle 29 correct_response right
+	setcycle 29 pracexp exp
+	setcycle 29 proanti pro
+	setcycle 29 side right
+	setcycle 30 correct_response left
+	setcycle 30 pracexp exp
+	setcycle 30 proanti pro
+	setcycle 30 side left
+	setcycle 31 correct_response right
+	setcycle 31 pracexp exp
+	setcycle 31 proanti pro
+	setcycle 31 side right
+	setcycle 32 correct_response left
+	setcycle 32 pracexp exp
+	setcycle 32 proanti pro
+	setcycle 32 side left
+	setcycle 33 correct_response right
+	setcycle 33 pracexp exp
+	setcycle 33 proanti pro
+	setcycle 33 side right
+	setcycle 34 correct_response left
+	setcycle 34 pracexp exp
+	setcycle 34 proanti pro
+	setcycle 34 side left
+	setcycle 35 correct_response right
+	setcycle 35 pracexp exp
+	setcycle 35 proanti pro
+	setcycle 35 side right
+	setcycle 36 correct_response left
+	setcycle 36 pracexp exp
+	setcycle 36 proanti pro
+	setcycle 36 side left
+	setcycle 37 correct_response right
+	setcycle 37 pracexp exp
+	setcycle 37 proanti pro
+	setcycle 37 side right
+	setcycle 38 correct_response left
+	setcycle 38 pracexp exp
+	setcycle 38 proanti pro
+	setcycle 38 side left
+	setcycle 39 correct_response right
+	setcycle 39 pracexp exp
+	setcycle 39 proanti pro
+	setcycle 39 side right
+	run trial_sequence
+
+define sequence mixed_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run mixed_loop_12 always
+	run mixed_loop_40 always
+
+define loop new_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run ""
+
+define loop practice_inner_loop
+	set source_file ""
+	set source table
+	set skip 0
+	set repeat 10
+	set order random
+	set offset no
+	set item trial_sequence
+	set description "A single block of trials"
+	set cycles 4
+	set continuous no
+	set column_order ""
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 side left
+	setcycle 0 proanti pro
+	setcycle 0 correct_response left
+	setcycle 1 side left
+	setcycle 1 proanti anti
+	setcycle 1 correct_response right
+	setcycle 2 side right
+	setcycle 2 proanti pro
+	setcycle 2 correct_response right
+	setcycle 3 side right
+	setcycle 3 proanti anti
+	setcycle 3 correct_response left
+	run trial_sequence
+
+define loop practice_loop
+	set source_file ""
+	set source table
+	set skip 0
+	set repeat 1
+	set order random
+	set offset no
+	set item block_sequence
+	set description "A loop containing one or more practice blocks"
+	set cycles 1
+	set continuous no
+	set column_order practice
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 practice yes
+	run practice_sequence
+
+define sequence practice_sequence
+	set flush_keyboard yes
+	set description "A sequence containing a single block of trials followed by feedback to the participant"
+	run practice_inner_loop always
+
+define loop pro_block
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 block_type pro
+	run pro_sequence
+
+define loop pro_loop_12
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 12
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 correct_response left
+	setcycle 0 pracexp prac
+	setcycle 0 proanti pro
+	setcycle 0 side left
+	setcycle 1 correct_response right
+	setcycle 1 pracexp prac
+	setcycle 1 proanti pro
+	setcycle 1 side right
+	setcycle 2 correct_response left
+	setcycle 2 pracexp prac
+	setcycle 2 proanti pro
+	setcycle 2 side left
+	setcycle 3 correct_response right
+	setcycle 3 pracexp prac
+	setcycle 3 proanti pro
+	setcycle 3 side right
+	setcycle 4 correct_response left
+	setcycle 4 pracexp prac
+	setcycle 4 proanti pro
+	setcycle 4 side left
+	setcycle 5 correct_response right
+	setcycle 5 pracexp prac
+	setcycle 5 proanti pro
+	setcycle 5 side right
+	setcycle 6 correct_response left
+	setcycle 6 pracexp prac
+	setcycle 6 proanti pro
+	setcycle 6 side left
+	setcycle 7 correct_response right
+	setcycle 7 pracexp prac
+	setcycle 7 proanti pro
+	setcycle 7 side right
+	setcycle 8 correct_response left
+	setcycle 8 pracexp prac
+	setcycle 8 proanti pro
+	setcycle 8 side left
+	setcycle 9 correct_response right
+	setcycle 9 pracexp prac
+	setcycle 9 proanti pro
+	setcycle 9 side right
+	setcycle 10 correct_response left
+	setcycle 10 pracexp prac
+	setcycle 10 proanti pro
+	setcycle 10 side left
+	setcycle 11 correct_response right
+	setcycle 11 pracexp prac
+	setcycle 11 proanti pro
+	setcycle 11 side right
+	run trial_sequence
+
+define loop pro_loop_40
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 40
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 correct_response left
+	setcycle 0 pracexp exp
+	setcycle 0 proanti pro
+	setcycle 0 side left
+	setcycle 1 correct_response right
+	setcycle 1 pracexp exp
+	setcycle 1 proanti pro
+	setcycle 1 side right
+	setcycle 2 correct_response left
+	setcycle 2 pracexp exp
+	setcycle 2 proanti pro
+	setcycle 2 side left
+	setcycle 3 correct_response right
+	setcycle 3 pracexp exp
+	setcycle 3 proanti pro
+	setcycle 3 side right
+	setcycle 4 correct_response left
+	setcycle 4 pracexp exp
+	setcycle 4 proanti pro
+	setcycle 4 side left
+	setcycle 5 correct_response right
+	setcycle 5 pracexp exp
+	setcycle 5 proanti pro
+	setcycle 5 side right
+	setcycle 6 correct_response left
+	setcycle 6 pracexp exp
+	setcycle 6 proanti pro
+	setcycle 6 side left
+	setcycle 7 correct_response right
+	setcycle 7 pracexp exp
+	setcycle 7 proanti pro
+	setcycle 7 side right
+	setcycle 8 correct_response left
+	setcycle 8 pracexp exp
+	setcycle 8 proanti pro
+	setcycle 8 side left
+	setcycle 9 correct_response right
+	setcycle 9 pracexp exp
+	setcycle 9 proanti pro
+	setcycle 9 side right
+	setcycle 10 correct_response left
+	setcycle 10 pracexp exp
+	setcycle 10 proanti pro
+	setcycle 10 side left
+	setcycle 11 correct_response right
+	setcycle 11 pracexp exp
+	setcycle 11 proanti pro
+	setcycle 11 side right
+	setcycle 12 correct_response left
+	setcycle 12 pracexp exp
+	setcycle 12 proanti pro
+	setcycle 12 side left
+	setcycle 13 correct_response right
+	setcycle 13 pracexp exp
+	setcycle 13 proanti pro
+	setcycle 13 side right
+	setcycle 14 correct_response left
+	setcycle 14 pracexp exp
+	setcycle 14 proanti pro
+	setcycle 14 side left
+	setcycle 15 correct_response right
+	setcycle 15 pracexp exp
+	setcycle 15 proanti pro
+	setcycle 15 side right
+	setcycle 16 correct_response left
+	setcycle 16 pracexp exp
+	setcycle 16 proanti pro
+	setcycle 16 side left
+	setcycle 17 correct_response right
+	setcycle 17 pracexp exp
+	setcycle 17 proanti pro
+	setcycle 17 side right
+	setcycle 18 correct_response left
+	setcycle 18 pracexp exp
+	setcycle 18 proanti pro
+	setcycle 18 side left
+	setcycle 19 correct_response right
+	setcycle 19 pracexp exp
+	setcycle 19 proanti pro
+	setcycle 19 side right
+	setcycle 20 correct_response left
+	setcycle 20 pracexp exp
+	setcycle 20 proanti pro
+	setcycle 20 side left
+	setcycle 21 correct_response right
+	setcycle 21 pracexp exp
+	setcycle 21 proanti pro
+	setcycle 21 side right
+	setcycle 22 correct_response left
+	setcycle 22 pracexp exp
+	setcycle 22 proanti pro
+	setcycle 22 side left
+	setcycle 23 correct_response right
+	setcycle 23 pracexp exp
+	setcycle 23 proanti pro
+	setcycle 23 side right
+	setcycle 24 correct_response left
+	setcycle 24 pracexp exp
+	setcycle 24 proanti pro
+	setcycle 24 side left
+	setcycle 25 correct_response right
+	setcycle 25 pracexp exp
+	setcycle 25 proanti pro
+	setcycle 25 side right
+	setcycle 26 correct_response left
+	setcycle 26 pracexp exp
+	setcycle 26 proanti pro
+	setcycle 26 side left
+	setcycle 27 correct_response right
+	setcycle 27 pracexp exp
+	setcycle 27 proanti pro
+	setcycle 27 side right
+	setcycle 28 correct_response left
+	setcycle 28 pracexp exp
+	setcycle 28 proanti pro
+	setcycle 28 side left
+	setcycle 29 correct_response right
+	setcycle 29 pracexp exp
+	setcycle 29 proanti pro
+	setcycle 29 side right
+	setcycle 30 correct_response left
+	setcycle 30 pracexp exp
+	setcycle 30 proanti pro
+	setcycle 30 side left
+	setcycle 31 correct_response right
+	setcycle 31 pracexp exp
+	setcycle 31 proanti pro
+	setcycle 31 side right
+	setcycle 32 correct_response left
+	setcycle 32 pracexp exp
+	setcycle 32 proanti pro
+	setcycle 32 side left
+	setcycle 33 correct_response right
+	setcycle 33 pracexp exp
+	setcycle 33 proanti pro
+	setcycle 33 side right
+	setcycle 34 correct_response left
+	setcycle 34 pracexp exp
+	setcycle 34 proanti pro
+	setcycle 34 side left
+	setcycle 35 correct_response right
+	setcycle 35 pracexp exp
+	setcycle 35 proanti pro
+	setcycle 35 side right
+	setcycle 36 correct_response left
+	setcycle 36 pracexp exp
+	setcycle 36 proanti pro
+	setcycle 36 side left
+	setcycle 37 correct_response right
+	setcycle 37 pracexp exp
+	setcycle 37 proanti pro
+	setcycle 37 side right
+	setcycle 38 correct_response left
+	setcycle 38 pracexp exp
+	setcycle 38 proanti pro
+	setcycle 38 side left
+	setcycle 39 correct_response right
+	setcycle 39 pracexp exp
+	setcycle 39 proanti pro
+	setcycle 39 side right
+	run trial_sequence
+
+define sequence pro_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run pro_loop_12 always
+	run pro_loop_40 always
+
+define pygaze_drift_correct pygaze_drift_correct
+	set ypos 0
+	set xpos 0
+	set target_style "large-open"
+	set target_color "[foreground]"
+	set fixation_triggered no
+	set draw_target yes
+	set description "Perform eye-tracker drift correction"
+
+define pygaze_drift_correct pygaze_drift_correct_1
+	set ypos 0
+	set xpos 0
+	set target_style "large-open"
+	set target_color "[foreground]"
+	set fixation_triggered no
+	set draw_target yes
+	set description "Perform eye-tracker drift correction"
+
+define sketchpad pygaze_drift_correct_handover
+	set duration 5000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Thanks, the next trial starts in 5 seconds." x=0 y=0 z_index=0
+
+define sketchpad pygaze_drift_correct_handover_1
+	set duration 5000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Thanks, the next trial starts in 5 seconds." x=0 y=0 z_index=0
+
+define sketchpad pygaze_drift_correct_instruction
+	set start_response_interval no
+	set duration keypress
+	set description "A sketchpad containing the instructions for the participant"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="The next screen will show a white fixation dot in the centre. <br /><br />Please look at the centre of the cross and keep looking at it while you press the spacebar.<br /><br />Press any key to go to the next screen." x=0 y=0 z_index=0
+
+define sketchpad pygaze_drift_correct_instruction_1
+	set start_response_interval no
+	set duration keypress
+	set description "A sketchpad containing the instructions for the participant"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="The next screen will show a white fixation dot in the centre. <br /><br />Please look at the centre of the cross and keep looking at it while you press the spacebar.<br /><br />Press any key to go to the next screen." x=0 y=0 z_index=0
+
+define pygaze_init pygaze_init
+	set tracker_type "Advanced dummy (mouse simulation)"
+	set tobiiglasses_udpport 49152
+	set tobiiglasses_address "192.168.71.50"
+	set smi_send_port 4444
+	set smi_recv_port 5555
+	set smi_ip "127.0.0.1"
+	set sacc_vel_thr 35
+	set sacc_acc_thr 9500
+	set eyelink_pupil_size_mode area
+	set eyelink_force_drift_correct yes
+	set description "Initialize and calibrate eye tracker"
+	set calibrate yes
+	set calbeep yes
+	set _logfile automatic
+
+define pygaze_log pygaze_log
+	set throttle 2
+	set msg "OpenSesame logging starts now for trial [count_trial_sequence]"
+	set description "Writes information to the eye-tracker logfile"
+	set auto_log yes
+
+define pygaze_log pygaze_log_1
+	set throttle 2
+	set msg "OpenSesame logging starts now for trial [count_trial_sequence]"
+	set description "Writes information to the eye-tracker logfile"
+	set auto_log yes
+
+define pygaze_start_recording pygaze_start_recording
+	set status_msg "start_trial [count_trial_sequence]"
+	set description "Puts the eye tracker into recording mode"
+
+define pygaze_start_recording pygaze_start_recording_1
+	set status_msg "start_trial [count_trial_sequence]"
+	set description "Puts the eye tracker into recording mode"
+
+define pygaze_stop_recording pygaze_stop_recording
+	set status_msg "stop_trial [count_trial_sequence]"
+	set description "Stops recording of eye tracking data"
+
+define pygaze_stop_recording pygaze_stop_recording_1
+	set status_msg "stop_trial [count_trial_sequence]"
+	set description "Stops recording of eye tracking data"
+
+define inline_script randomise_run_order_for_condition_1
+	set description "Executes Python code"
+	___run__
+	import random
+	run_order_condition_1 = [1,2,3,4]
+	random.shuffle(run_order_condition_1)
+	__end__
+	set _prepare ""
+
+define inline_script randomise_which_condition_runs_first
+	set description "Executes Python code"
+	___run__
+	import random
+	condition_run_order = [1,2]
+	random.shuffle(condition_run_order)
+	__end__
+	set _prepare ""
+
+define inline_script say_whether_we_want_feedback
+	set description "Executes Python code"
+	___run__
+	var.give_feedback = False
+	__end__
+	set _prepare ""
+
+define inline_script set_current_block_for_condition_1
+	set description "Executes Python code"
+	___run__
+	var.current_block = run_order_condition_1[var.count_condition_1]
+	__end__
+	set _prepare ""
+
+define inline_script set_which_condition_runs
+	set description "Executes Python code"
+	___run__
+	var.this_condition = condition_run_order[var.count_conditions]
+	__end__
+	set _prepare ""
+
+define sketchpad take_a_break
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Take a break, and when you are ready press any key to continue." x=0 y=0 z_index=0
+
+define sketchpad take_a_break_1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Take a break, and when you are ready press any key to continue." x=0 y=0 z_index=0
+
+define sequence trial_sequence
+	set flush_keyboard yes
+	set description "A single trial"
+	run pygaze_drift_correct_instruction "=self.get(\"count_trial_sequence\") % 10 == 0 and self.get(\"count_trial_sequence\") > 1"
+	run pygaze_drift_correct "=self.get(\"count_trial_sequence\") % 10 == 0 and self.get(\"count_trial_sequence\") > 1"
+	run pygaze_drift_correct_handover "=self.get(\"count_trial_sequence\") % 10 == 0 and self.get(\"count_trial_sequence\") > 1"
+	run pygaze_start_recording always
+	run draw_central_fixation_cross always
+	run draw_central_and_lateral_dots always
+	run catch_the_response always
+	run pygaze_stop_recording always
+	run give_correct_feedback "=var.give_feedback and var.response_accuracy == 1"
+	run give_error_feedback "=var.give_feedback and var.response_accuracy == 0"
+	run blank_screen_ITI always
+	run take_a_break "=self.get(\"count_trial_sequence\") % 45 == 0 and self.get(\"count_trial_sequence\") > 1"
+	run logger always
+	run pygaze_log always
+
+define sequence trial_sequence_1
+	set flush_keyboard yes
+	set description "A single trial"
+	run pygaze_drift_correct_instruction_1 "=self.get(\"count_trial_sequence\") % 10 == 0 and self.get(\"count_trial_sequence\") > 1"
+	run pygaze_drift_correct_1 "=self.get(\"count_trial_sequence\") % 10 == 0 and self.get(\"count_trial_sequence\") > 1"
+	run pygaze_drift_correct_handover_1 "=self.get(\"count_trial_sequence\") % 10 == 0 and self.get(\"count_trial_sequence\") > 1"
+	run pygaze_start_recording_1 always
+	run draw_central_fixation_cross_1 always
+	run draw_central_and_lateral_dots_1 always
+	run catch_the_response_1 always
+	run give_correct_feedback_1 "=exp.practice == \"yes\" and var.response_accuracy == 1"
+	run give_error_feedback_1 "=exp.practice == \"yes\" and var.response_accuracy == 0"
+	run blank_screen_ITI_1 always
+	run take_a_break_1 "=self.get(\"count_trial_sequence\") % 45 == 0 and self.get(\"count_trial_sequence\") > 1"
+	run logger_1 always
+	run pygaze_log_1 always
+	run pygaze_stop_recording_1 always
+

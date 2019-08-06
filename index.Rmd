@@ -50,6 +50,8 @@ This version records eye movements and pupil dilation.
 -- how to use someone's voice to trigger a response: yields a variable called 'response_time_voice_key'
 * [pro- and anti-saccade task](https://github.com/mjgreen/opensesame_examples/raw/master/pro-saccade_anti-saccade.osexp)
 -- standard pro-saccade and anti-sacccade task trials
+* [pro- and anti-saccade task](https://github.com/mjgreen/opensesame_examples/raw/master/pro-saccade_anti-saccade_tessa.osexp)
+-- a variant of the pro-anti saccade task that tessa used
 
 ## plugins
 To use these plugins download the zip files, and unzip to `C:\Program Files (x86)\OpenSesame\share\opensesame_plugins`
