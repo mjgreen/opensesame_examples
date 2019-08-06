@@ -1,6 +1,6 @@
 ---
-API: 2
-OpenSesame: 3.1.9
+API: 2.1
+OpenSesame: 3.2.8
 Platform: nt
 ---
 set width 1024
@@ -26,7 +26,7 @@ set font_size 18
 set font_italic no
 set font_family mono
 set font_bold no
-set experiment_path "c:\\Program Files (x86)\\OpenSesame\\lib\\site-packages\\share\\opensesame_resources\\templates"
+set experiment_path "C:\\Users\\matt\\OPENSESAME\\opensesame_examples"
 set disable_garbage_collection yes
 set description "The main experiment item"
 set coordinates uniform
@@ -107,8 +107,7 @@ define inline_script new_inline_script
 		except IOError as e:
 			print e
 		loudness = get_rms(block)
-		print(loudness) # for finding a threshold that works with the particular 
-		                # PC and mic
+		print(loudness) # find a threshold that works for the current setup
 		if loudness > sound_threshold:
 			response_time = clock.time() - start_time
 			response = u'detected'
@@ -136,6 +135,7 @@ define logger new_logger
 	set auto_log yes
 
 define loop new_loop
+	set source_file ""
 	set source table
 	set repeat 1
 	set order sequential
