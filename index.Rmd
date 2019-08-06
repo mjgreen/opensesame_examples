@@ -35,6 +35,8 @@ output:
 * [visual search](https://github.com/mjgreen/opensesame_examples/raw/master/visual_search.osexp)
 -- Visual search is a type of perceptual task requiring attention that typically involves an active scan of the visual environment for a particular object or feature (the target) among other objects or features (the distractors)
 -- this one doesn't record eye movements yet
+* [visual search kf variant, paired participants](https://github.com/mjgreen/opensesame_examples/raw/master/visual-search-kf)
+-- i can't remember what this variant does now
 
 ## eye tracking templates
 * [website view and rate](https://github.com/mjgreen/opensesame_examples/raw/master/website_view_and_rate.osexp) 
